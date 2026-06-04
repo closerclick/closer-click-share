@@ -100,6 +100,8 @@ const CSS = `
   .ico.x  { background: #000; }
   .ico.fb { background: #1877f2; }
   .ico.ig { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); }
+  .ext-actions { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+  ::slotted(*) { margin-top: .9rem; }
 `
 
 class CloserClickShare extends HTMLElement {
@@ -207,6 +209,8 @@ class CloserClickShare extends HTMLElement {
             <button class="ico fb" data-share="fb" title="${t.fb}" aria-label="${t.fb}"><svg viewBox="0 0 24 24">${SVG.fb}</svg></button>
             <button class="ico ig" data-share="more" title="${t.more}" aria-label="${t.more}"><svg viewBox="0 0 24 24">${SVG.more}</svg></button>
           </div>
+          <!-- acciones extra del llamador (p. ej. Imprimir / PDF). Vacío => nada. -->
+          <div class="ext-actions" part="actions"><slot name="actions"></slot></div>
         </div>
       </div>`
     root.querySelector('.overlay').addEventListener('click', (e) => { if (e.target === e.currentTarget) this._close() })

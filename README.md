@@ -44,3 +44,11 @@ el.addEventListener('cc-share-close', () => { el.open = false })
 ### Tema (variables CSS)
 `--ccs-bg`, `--ccs-text`, `--ccs-muted`, `--ccs-border`, `--ccs-accent`,
 `--ccs-accent-text`, `--ccs-input-bg`, `--ccs-overlay`, `--ccs-radius`, `--ccs-shadow`.
+
+### Slot de acciones extra
+`<closer-click-share>` admite botones adicionales del llamador via `slot="actions"` (p. ej. Imprimir / PDF):
+```html
+<closer-click-share :url=... :open=...>
+  <div slot="actions"><button @click=...>🖨 Imprimir</button></div>
+</closer-click-share>
+```
